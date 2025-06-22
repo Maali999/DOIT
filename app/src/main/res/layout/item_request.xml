@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:padding="12dp"
+    android:background="#EDF2F7">
+
+    <!-- Profile image -->
+    <ImageView
+        android:id="@+id/imgProfile"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/man3"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Subject -->
+    <TextView
+        android:id="@+id/txtSubject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Maths"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        app:layout_constraintTop_toTopOf="@+id/imgProfile"
+        app:layout_constraintStart_toEndOf="@+id/imgProfile"
+        app:layout_constraintHorizontal_bias="0"
+        android:layout_marginStart="12dp" />
+
+    <!-- Deadline -->
+    <TextView
+        android:id="@+id/txtDeadline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Deadline"
+        android:textSize="12sp"
+        android:textColor="#7792B7"
+        app:layout_constraintTop_toBottomOf="@id/txtSubject"
+        app:layout_constraintStart_toStartOf="@+id/txtSubject" />
+
+    <!-- Price -->
+    <TextView
+        android:id="@+id/txtPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rs.2000"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/txtSubject"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- View button -->
+    <Button
+        android:id="@+id/btnView"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:text="View"
+        app:layout_constraintTop_toBottomOf="@+id/imgProfile"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#FFFFFF"
+        android:textColor="#000000"
+        android:elevation="2dp" />
+
+    <!-- Accept button -->
+
+    <!-- Decline button -->
+
+    <Button
+        android:id="@+id/btnAccept"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_marginStart="48dp"
+        android:backgroundTint="#007BFF"
+        android:elevation="2dp"
+        android:text="Accept"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/btnView"
+        app:layout_constraintTop_toTopOf="@+id/btnView" />
+
+    <Button
+        android:id="@+id/btnDecline"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:backgroundTint="#FFFFFF"
+        android:elevation="2dp"
+        android:text="Decline"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+</androidx.constraintlayout.widget.ConstraintLayout>

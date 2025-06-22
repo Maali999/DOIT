@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/statusLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Title -->
+
+    <!-- Pending Label -->
+
+    <!-- Pending Item 1 -->
+
+    <!-- Pending Item 2 -->
+
+    <!-- In Progress Label -->
+
+    <!-- In Progress Item -->
+
+    <!-- Completed Label -->
+
+    <!-- Completed Item -->
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:text="Status"
+        android:textColor="#007BFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/logo"
+        app:layout_constraintStart_toEndOf="@id/logo"
+        app:layout_constraintTop_toTopOf="@id/logo"
+        app:layout_constraintVertical_bias="0.333" />
+
+    <TextView
+        android:id="@+id/pendingLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pending"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.172" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pendingItem1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#F2F6FC"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.254">
+
+        <ImageView
+            android:id="@+id/pendingIcon1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/img_5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/pendingTitle1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Maths"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/pendingIcon1"
+            app:layout_constraintTop_toTopOf="@id/pendingIcon1" />
+
+        <TextView
+            android:id="@+id/pendingDate1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="22/06/2025"
+            android:textColor="#7F9CCB"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/pendingTitle1"
+            app:layout_constraintTop_toBottomOf="@id/pendingTitle1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pendingItem2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="#F2F6FC"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.451">
+
+        <ImageView
+            android:id="@+id/pendingIcon2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/img_5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/pendingTitle2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Data Structure"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/pendingIcon2"
+            app:layout_constraintTop_toTopOf="@id/pendingIcon2" />
+
+        <TextView
+            android:id="@+id/pendingDate2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="21/06/2025"
+            android:textColor="#7F9CCB"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/pendingTitle2"
+            app:layout_constraintTop_toBottomOf="@id/pendingTitle2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/progressLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="In Progress"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.367" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/progressItem"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#F2F6FC"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.583">
+
+        <ImageView
+            android:id="@+id/progressIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/img_5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/progressTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Mobile"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/progressIcon"
+            app:layout_constraintTop_toTopOf="@id/progressIcon" />
+
+        <TextView
+            android:id="@+id/progressDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="22/06/2025"
+            android:textColor="#7F9CCB"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/progressTitle"
+            app:layout_constraintTop_toBottomOf="@id/progressTitle" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/completedLabel"
+        android:layout_width="92dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="20dp"
+        android:text="Completed"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.689" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/completedItem"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#F2F6FC"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.808">
+
+        <ImageView
+            android:id="@+id/completedIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/img_5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/completedTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Requirement"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/completedIcon"
+            app:layout_constraintTop_toTopOf="@id/completedIcon" />
+
+        <TextView
+            android:id="@+id/completedDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Submitted"
+            android:textColor="#7F9CCB"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/completedTitle"
+            app:layout_constraintTop_toBottomOf="@id/completedTitle" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

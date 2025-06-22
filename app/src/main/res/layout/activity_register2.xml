@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#FFFFFF">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp">
+
+        <!-- Logo Image -->
+        <ImageView
+            android:id="@+id/logoImage"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/img_7"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Title Text -->
+
+        <!-- University -->
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DOIT"
+            android:textColor="#007BFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.303" />
+
+        <EditText
+            android:id="@+id/etUniversity"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:background="#E8EEF5"
+            android:hint="Enter your University"
+            android:padding="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Faculty -->
+        <EditText
+            android:id="@+id/etFaculty"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:hint="Enter faculty"
+            android:background="#E8EEF5"
+            android:padding="12dp"
+            app:layout_constraintTop_toBottomOf="@id/etUniversity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="10dp" />
+
+        <!-- Degree -->
+        <EditText
+            android:id="@+id/etDegree"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:hint="Enter Degree"
+            android:background="#E8EEF5"
+            android:padding="12dp"
+            app:layout_constraintTop_toBottomOf="@id/etFaculty"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="10dp" />
+
+        <!-- Skills -->
+        <EditText
+            android:id="@+id/etSkills"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:hint="Describe your skills"
+            android:background="#E8EEF5"
+            android:gravity="top"
+            android:padding="12dp"
+            android:inputType="textMultiLine"
+            app:layout_constraintTop_toBottomOf="@id/etDegree"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="10dp" />
+
+        <!-- Done Button -->
+        <Button
+            android:id="@+id/btnDone"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:text="Done"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#0C7FF2"
+            app:cornerRadius="10dp"
+            app:layout_constraintTop_toBottomOf="@id/etSkills"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="24dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
