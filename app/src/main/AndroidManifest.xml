@@ -1,9 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="CoarseFineLocation">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -15,28 +17,70 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DOIT"
         tools:targetApi="31">
-
-        <!-- ✅ Correct placement of API key -->
+        <activity
+            android:name=".ProfileActivitys"
+            android:exported="false" />
+        <activity
+            android:name=".NotificationActivitys"
+            android:exported="false" />
+        <activity
+            android:name=".NotificationAdapter"
+            android:exported="false"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".Notification"
+            android:exported="false"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".ViewAssignmentsActivitys"
+            android:exported="false" />
+        <activity
+            android:name=".AssignmentAdapter"
+            android:exported="false"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".Assignment"
+            android:exported="false"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".DatabaseHelper"
+            android:exported="false"
+            tools:ignore="Instantiatable" /> <!-- ✅ Correct placement of API key -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyB_UneKDhI8zVUIm-B2xX8a-b3YPch9wXw" />
 
-        <activity android:name=".MapActivity" android:exported="false" />
-        <activity android:name=".ProfileActivity" android:exported="false" />
-        <activity android:name=".StatusActivity" android:exported="false" />
-        <activity android:name=".NotificationsActivity" android:exported="false" />
-        <activity android:name=".ViewRequestsActivity" android:exported="false" />
-        <activity android:name=".adapters.RequestAdapter" android:exported="false" tools:ignore="Instantiatable" />
-        <activity android:name=".models.RequestModel" android:exported="false" tools:ignore="Instantiatable" />
-        <activity android:name=".UploadAssignmentActivity" android:exported="false" />
-        <activity android:name=".HomeActivity" android:exported="false" />
-        <activity android:name=".Register2Activity" android:exported="false" />
-        <activity android:name=".RegisterActivity" android:exported="false" />
-        <activity android:name=".DBHelper" android:exported="false" tools:ignore="Instantiatable,MissingClass" />
-
-        <activity android:name=".MainActivity" android:exported="true">
+        <activity
+            android:name=".MapActivity"
+            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".ProfileActivity"-->
+<!--            android:exported="false" />-->
+        <activity
+            android:name=".StatusActivity"
+            android:exported="false" />
+        <activity
+            android:name=".models.RequestModel"
+            android:exported="false"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".UploadAssignmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Register2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

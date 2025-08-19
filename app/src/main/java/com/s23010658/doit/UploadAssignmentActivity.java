@@ -3,12 +3,7 @@ package com.s23010658.doit;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.DocumentsContract;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
+import android.widget.*;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,6 +15,8 @@ public class UploadAssignmentActivity extends AppCompatActivity {
     EditText editSubject, editDescription, editAmount, editDeadline;
     Button btnSelectPdf, btnSubmit;
     TextView pdfPreview;
+
+    DatabaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,14 +31,11 @@ public class UploadAssignmentActivity extends AppCompatActivity {
         btnSubmit = findViewById(R.id.btnSubmit);
         pdfPreview = findViewById(R.id.pdfPreview);
 
+        dbHelper = new DatabaseHelper(this);
+
         btnSelectPdf.setOnClickListener(v -> openPdfPicker());
 
-        btnSubmit.setOnClickListener(v -> {
-            if (validateInputs()) {
-                Toast.makeText(this, "Assignment Submitted!", Toast.LENGTH_SHORT).show();
-                // Handle actual upload logic here
-            }
-        });
+        btnSubmit.setOnClickListener(v -> submitAssignment());
     }
 
     private void openPdfPicker() {
@@ -62,14 +56,36 @@ public class UploadAssignmentActivity extends AppCompatActivity {
     }
 
     private boolean validateInputs() {
-        if (editSubject.getText().toString().isEmpty() ||
-                editDescription.getText().toString().isEmpty() ||
-                editAmount.getText().toString().isEmpty() ||
-                editDeadline.getText().toString().isEmpty() ||
+        if (editSubject.getText().toString().trim().isEmpty() ||
+                editDescription.getText().toString().trim().isEmpty() ||
+                editAmount.getText().toString().trim().isEmpty() ||
+                editDeadline.getText().toString().trim().isEmpty() ||
                 pdfUri == null) {
             Toast.makeText(this, "Please fill all fields and select a PDF", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
+    }
+
+    private void submitAssignment() {
+        if (!validateInputs()) return;
+
+        String subject = editSubject.getText().toString().trim();
+        String description = editDescription.getText().toString().trim();
+        String amount = editAmount.getText().toString().trim();
+        String deadline = editDeadline.getText().toString().trim();
+        String pdfUriString = pdfUri.toString();
+
+        boolean inserted = dbHelper.insertAssignment(subject, description, amount, deadline, pdfUriString);
+
+        if (inserted) {
+            Toast.makeText(this, "Assignment Submitted!", Toast.LENGTH_SHORT).show();
+            // Go to ViewAssignmentsActivity immediately
+            Intent intent = new Intent(UploadAssignmentActivity.this, ViewAssignmentsActivitys.class);
+            startActivity(intent);
+            finish(); // close current activity so user can't go back here accidentally
+        } else {
+            Toast.makeText(this, "Submission failed! Check Logcat for details.", Toast.LENGTH_LONG).show();
+        }
     }
 }

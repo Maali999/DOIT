@@ -8,7 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class RegisterActivity extends AppCompatActivity {
 
     EditText etName, etEmail, etLocation, etPassword, etRetypePassword;
-    Button btnDone;  // changed from btnNext to btnDone
+    Button btnDone;
+    DatabaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +21,9 @@ public class RegisterActivity extends AppCompatActivity {
         etLocation = findViewById(R.id.etLocation);
         etPassword = findViewById(R.id.etPassword);
         etRetypePassword = findViewById(R.id.etRetypePassword);
-        btnDone = findViewById(R.id.btnNext);  // updated ID reference
+        btnDone = findViewById(R.id.btnNext);
+
+        dbHelper = new DatabaseHelper(this);
 
         btnDone.setOnClickListener(v -> {
             String name = etName.getText().toString().trim();
@@ -29,8 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
             String password = etPassword.getText().toString().trim();
             String confirmPassword = etRetypePassword.getText().toString().trim();
 
-            if (name.isEmpty() || email.isEmpty() || location.isEmpty() ||
-                    password.isEmpty() || confirmPassword.isEmpty()) {
+            if (name.isEmpty() || email.isEmpty() || location.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -40,9 +42,19 @@ public class RegisterActivity extends AppCompatActivity {
                 return;
             }
 
-            // All inputs are valid – move to Register2Activity
-            Intent intent = new Intent(RegisterActivity.this, Register2Activity.class);
-            startActivity(intent);
+            // Insert user
+            boolean inserted = dbHelper.insertUser(name, email, location, password);
+            if (inserted) {
+                Toast.makeText(this, "Registered successfully!", Toast.LENGTH_SHORT).show();
+
+                // Pass username and password to Register2Activity
+                Intent intent = new Intent(RegisterActivity.this, Register2Activity.class);
+                intent.putExtra("username", name);
+                intent.putExtra("password", password);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "Registration failed. Try again.", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 }

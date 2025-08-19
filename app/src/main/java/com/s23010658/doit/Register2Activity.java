@@ -9,6 +9,8 @@ public class Register2Activity extends AppCompatActivity {
 
     EditText etUniversity, etFaculty, etDegree, etSkills;
     Button btnDone;
+    DatabaseHelper dbHelper;
+    String username, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,13 @@ public class Register2Activity extends AppCompatActivity {
         etSkills = findViewById(R.id.etSkills);
         btnDone = findViewById(R.id.btnDone);
 
+        dbHelper = new DatabaseHelper(this);
+
+        // Get username and password from intent
+        Intent intent = getIntent();
+        username = intent.getStringExtra("username");
+        password = intent.getStringExtra("password");
+
         btnDone.setOnClickListener(v -> {
             String university = etUniversity.getText().toString().trim();
             String faculty = etFaculty.getText().toString().trim();
@@ -30,12 +39,19 @@ public class Register2Activity extends AppCompatActivity {
             if (university.isEmpty() || faculty.isEmpty() || degree.isEmpty() || skills.isEmpty()) {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "Registration complete!", Toast.LENGTH_LONG).show();
+                // Update existing user row
+                boolean updated = dbHelper.updateUserDetails(username, password, university, faculty, degree, skills);
 
-                // Navigate to HomeActivity
-                Intent intent = new Intent(Register2Activity.this, HomeActivity.class);
-                startActivity(intent);
-                finish(); // Optional: close the registration screen
+                if(updated){
+                    Toast.makeText(this, "Registration complete!", Toast.LENGTH_LONG).show();
+
+                    // Navigate to HomeActivity
+                    Intent homeIntent = new Intent(Register2Activity.this, HomeActivity.class);
+                    startActivity(homeIntent);
+                    finish();
+                } else {
+                    Toast.makeText(this, "Update failed!", Toast.LENGTH_SHORT).show();
+                }
             }
 
         });
